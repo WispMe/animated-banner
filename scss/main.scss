@@ -1,0 +1,284 @@
+@mixin banner(){
+    font-size: 30px;
+    width: 300px;
+    position: absolute;
+    left: 30%;
+    top: -30px;
+}
+
+.animated-banner1{
+    @include banner();
+    animation: moveDown 1s forwards,
+    moveAway 1s 4s forwards,
+    disappear-left-text 1s 11s forwards;
+}
+
+.star{
+    font-size: 30px;
+    position: absolute;
+    margin-left: 5px;
+    animation: moveDown 1s forwards,
+    moveAway2 1s 4s forwards,
+    disappear-left-shape 1s 11s forwards;
+    left: 50%;
+    top: -30px;
+    color: aqua;
+    
+}
+
+.animated-banner2{
+    @include banner();
+    animation: moveDown2 1s 1s forwards,
+    moveAway 1s 5s forwards,
+    disappear-right-text 1s 11s forwards;
+}
+.rectangle{
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-left: 5px;
+    animation: moveDown2 1s 1s forwards,
+    moveAway2 1s 5s forwards,
+    changeColor 1s 8s forwards,
+    disappear-right-shape 1s 11s forwards;
+    left: 50%;
+    top: -30px;
+}
+
+.animated-banner3{
+    @include banner();
+    animation: moveDown3 1s 2s forwards,
+    moveAway 1s 6s forwards,
+    disappear-left-text 1s 11s forwards;
+}
+
+.hexagon {
+    margin-left: 5px;
+    margin-top: 5px;
+    position: absolute;
+    width: 30px; 
+    height: 17.321px;
+    background-color: red;
+    left: 50%;
+    top: -30px;
+    animation: moveDown3 1s 2s forwards,
+    moveAway2 1s 6s forwards,
+    changeColor2 1s 9s forwards,
+    disappear-left-shape 1s 11s forwards;
+    &:before,
+    &:after {
+        content: "";
+        position: absolute;
+        width: 0;
+        border-left: 15px solid transparent;
+        border-right: 15px solid transparent;
+    }
+    
+    &:before {
+        bottom: 100%;
+        border-bottom: 8.660px solid red;
+        animation: shape-bottom 1s 9s forwards;
+    }
+    
+    &:after {
+        top: 100%;
+        width: 0;
+        border-top: 8.660px solid red;
+        animation: shape-top 1s 9s forwards;
+    }
+    }
+
+.animated-banner4{
+    @include banner();
+    animation: moveDown4 1s 3s forwards,
+    moveAway 1s 7s forwards,
+    disappear-right-text 1s 11s forwards;
+
+}
+
+.circle{
+    animation: moveDown4 1s 3s forwards,
+    moveAway2 1s 7s forwards,
+    changeColor3 1s 10s forwards,
+    disappear-right-shape 1s 11s forwards;
+    border-radius: 50%;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+    left: 50%;
+    top: -30px;
+    background-color: orange;
+    position: absolute;
+}
+
+
+@keyframes moveDown{
+    100%{
+        top: 20px;
+    }
+}
+
+@keyframes moveDown2{
+    100%{
+        top: 60px;
+    }
+}
+
+@keyframes moveDown3{
+    100%{
+        top: 100px;
+    }
+}
+
+@keyframes moveDown4{
+    100%{
+        top: 140px;
+    }
+}
+
+@keyframes moveAway{
+    100%{
+        left: 20%;
+    }
+}
+
+@keyframes moveAway2{
+    100%{
+        left: 60%;
+    }
+}
+
+@keyframes changeColor{
+    100%{
+        background-color: purple;
+    }
+}
+
+@keyframes changeColor2{
+    100%{
+        background-color: gray;
+    }
+}
+
+@keyframes shape-top{
+    100%{
+        border-top-color: gray;
+    }
+}
+
+@keyframes shape-bottom{
+    100%{
+        border-bottom-color: gray;
+    }
+}
+
+
+@keyframes changeColor3{
+    100%{
+        background-color: black;
+    }
+}
+
+@keyframes changeColor4{
+    100%{
+        background-color: purple;
+    }
+}
+
+@keyframes disappear-left-text{
+    100%{
+        left: -30%;
+    }
+}
+
+@keyframes disappear-left-shape{
+    100%{
+        left: -10%;
+    }
+}
+
+
+@keyframes disappear-right-text{
+    100%{
+        left: 100%;
+    }
+}
+
+@keyframes disappear-right-shape{
+    100%{
+        left: 160%;
+    }
+}
+
+@mixin text(){
+    font-size: 30px;
+    text-align: center;
+    width: 300px;
+    left: 40%;
+    color: white;
+    position: absolute;
+    animation: showText 1s 12s forwards,
+    rotateText 1s 15s forwards,
+    ending 1s 16s forwards;
+    z-index: -1;
+}
+
+.animated-text{
+    @include text();
+    top: 10%;
+}
+
+.animated-text1{
+    @include text();
+    top: 20%;
+}
+
+@keyframes showText{
+    100%{
+        color: black;
+    }
+}
+
+.box{
+    width: 300px;
+    top: -20%;
+    left: 0%;
+    position: absolute;
+    animation: moveBox 1s 13s forwards,
+    rotateText 1s 15s forwards,
+    moveBox2 1s 14s forwards;
+    .inside-box{
+        margin: 0 auto;
+        color: gray;
+        border: 1px solid gray;
+        width: 100px;
+        animation: ending 1s 16s forwards;
+    }
+}
+
+@keyframes moveBox{
+    100%{
+        top: 15%;
+    }
+}
+
+@keyframes moveBox2{
+    100%{
+        left: 40%;
+    }
+}
+
+@keyframes rotateText{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes ending{
+    100%{
+        transform: scale(0.2);
+        color: white;
+        border-color: white;
+    }
+}
